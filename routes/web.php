@@ -11,6 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@show')->name('index');
+Route::match(['get', 'post'], '/registration', 'RegistrationController@show')->name('registration');
