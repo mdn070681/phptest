@@ -34,9 +34,6 @@
                 </ul>
             </div>
         </div>
-        <div class="toggle-block right">
-            <a href="#" class="toggle-mnu hidden-lg"><span></span></a>
-        </div>
     </div>
 </header>
 @show
@@ -44,6 +41,13 @@
 @section('main')
     <main>
         <section class="main">
+            <div class="container">
+                <form action="{{ route('search') }}" method="post" class="contact-form">
+                    {{ csrf_field() }}
+                    <input type="text" name="search" value="{{ old('search') }}" required placeholder="Поиск" maxlength="100">
+                    <input type="submit" value="Поиск">
+                </form>
+            </div>
             <div class="container">
                 <h1>Зарегистрированные абитуриенты</h1>
                 <div class="main-content">

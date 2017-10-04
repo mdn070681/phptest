@@ -13,3 +13,4 @@
 
 Route::get('/', 'IndexController@show')->name('index');
 Route::match(['get', 'post'], '/registration', 'RegistrationController@show')->name('registration');
+Route::post('search', 'SearchController@search')->name('search');

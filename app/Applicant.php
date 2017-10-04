@@ -12,7 +12,7 @@ class Applicant extends Model
 
     public static function getApplicants()
     {
-        $applicants = Applicant::where('status', 1)->paginate(2);
+        $applicants = Applicant::where('status', 1)->paginate(5);
         return $applicants;
     }
 
