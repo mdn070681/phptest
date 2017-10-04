@@ -47,46 +47,28 @@
             <div class="container">
                 <h1>Зарегистрированные абитуриенты</h1>
                 <div class="main-content">
-
-                    @if(!empty($data))
-                        @foreach($data as $applicant)
-
-                        @endforeach
-                    @endif
-
-
-                        <table class="table category-product">
-                            <thead>
-                            <tr>
-                                <th>Имя</th>
-                                <th>Фамилия</th>
-                                <th>Пол</th>
-                                <th>Номер группы</th>
-                                <th>Email</th>
-                                <th>Число баллов на ВНО</th>
-                                <th>Год рождения</th>
-                                <th>Местный/Иногородний</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @if(!empty($data))
-                                @foreach($data as $applicant)
-                                    <tr>
-                                        <td>{{ $applicant->name }}</td>
-                                        <td>{{ $applicant->surname }}</td>
-                                        <td>{{ $applicant->gender }}</td>
-                                        <td>{{ $applicant->group_number }}</td>
-                                        <td>{{ $applicant->email }}</td>
-                                        <td>{{ $applicant->score_vno }}</td>
-                                        <td>{{ $applicant->year }}</td>
-                                        <td>{{ $applicant->local_or_foreigner }}</td>
-                                    </tr>
-                                @endforeach
-                            @endif
-                            </tbody>
-                        </table>
-
-
+                    <table class="table category-product">
+                        <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Фамилия</th>
+                            <th>Номер группы</th>
+                            <th>Баллы</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @if(!empty($data))
+                            @foreach($data as $applicant)
+                                <tr>
+                                    <td>{{ $applicant->name }}</td>
+                                    <td>{{ $applicant->surname }}</td>
+                                    <td>{{ $applicant->group_number }}</td>
+                                    <td>{{ $applicant->score_vno }}</td>
+                                </tr>
+                            @endforeach
+                        @endif
+                        </tbody>
+                    </table>
                 </div>
             </div>
             <div class="container">

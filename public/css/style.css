@@ -860,11 +860,11 @@ footer p{
 {
     text-align: center;
 }
-.category-product th:last-child{
-    text-align: right;
-    padding-right: 30px;
-    width: 200px;
-}
+/*.category-product th:last-child{*/
+    /*text-align: right;*/
+    /*padding-right: 30px;*/
+    /*width: 200px;*/
+/*}*/
 .category-product select {
     background: #fff;
     border-radius: 0;

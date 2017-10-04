@@ -12,8 +12,7 @@ class IndexController extends Controller
     public function show()
     {
         if (view()->exists('index')) {
-            $data = Applicant::where('status', 1)->paginate(50);
-//            $data = 1;
+            $data = Applicant::getApplicants();
             return view('index')->withData($data)->withTitle('phpTest | index');
         }
         return view('welcome')->withTitle('View not found');
