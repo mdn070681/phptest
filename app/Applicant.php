@@ -12,17 +12,14 @@ class Applicant extends Model
 
     public static function getApplicants()
     {
-        $applicants = Applicant::where('status', 1)->paginate(50);
+        $applicants = Applicant::where('status', 1)->paginate(2);
         return $applicants;
     }
 
     public static function addApplicant($data)
     {
-        $oldApplicant = Applicant::where('email', $data->email);
-
-
-
-        if ($oldApplicant->email) {
+        $oldApplicant = Applicant::where('email', $data->email)->first();
+        if (is_object($oldApplicant)) {
             $oldApplicant->name = $data->name;
             $oldApplicant->surname = $data->surname;
             $oldApplicant->gender = $data->gender;
