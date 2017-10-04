@@ -43,4 +43,28 @@ class Applicant extends Model
         }
         return 1;
     }
+
+    public static function getApplicantsByName()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('name')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsBySurname()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('surname')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsByNumber()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('group_number')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsByScore()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('score_vno')->paginate(5);
+        return $applicants;
+    }
 }

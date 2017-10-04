@@ -54,10 +54,10 @@
                     <table class="table category-product">
                         <thead>
                         <tr>
-                            <th>Имя</th>
-                            <th>Фамилия</th>
-                            <th>Номер группы</th>
-                            <th>Баллы</th>
+                            <th><a href="{{ route('indexSortByName') }}">Имя</a></th>
+                            <th><a href="{{ route('indexSortBySurname') }}">Фамилия</a></th>
+                            <th><a href="{{ route('indexSortByNumber') }}">Номер группы</a></th>
+                            <th><a href="{{ route('indexSortByScore') }}">Баллы</a></th>
                         </tr>
                         </thead>
                         <tbody>
