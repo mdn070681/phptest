@@ -17,4 +17,16 @@ class IndexController extends Controller
         }
         return view('welcome')->withTitle('View not found');
     }
+
+    public function search(Request $request){
+
+        $search = $request->search;
+        $search .= '%';
+
+
+        $data = Applicant::where('status', 1 )->where('name', $search)->paginate(2);
+
+        return view('index')->withData($data)->withTitle('phpTest | search');
+
+    }
 }
