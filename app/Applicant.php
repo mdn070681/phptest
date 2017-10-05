@@ -44,27 +44,51 @@ class Applicant extends Model
         return 1;
     }
 
-    public static function getApplicantsByName()
+    public static function getApplicantsByNameUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('name')->paginate(5);
         return $applicants;
     }
 
-    public static function getApplicantsBySurname()
+    public static function getApplicantsByNameDown()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('name', 'desc')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsBySurnameUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('surname')->paginate(5);
         return $applicants;
     }
 
-    public static function getApplicantsByNumber()
+    public static function getApplicantsBySurnameDown()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('surname', 'desc')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsByNumberUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('group_number')->paginate(5);
         return $applicants;
     }
 
-    public static function getApplicantsByScore()
+    public static function getApplicantsByNumberDown()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('group_number', 'desc')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsByScoreUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('score_vno')->paginate(5);
+        return $applicants;
+    }
+
+    public static function getApplicantsByScoreDown()
+    {
+        $applicants = Applicant::where('status', 1)->orderBy('score_vno', 'desc')->paginate(5);
         return $applicants;
     }
 }

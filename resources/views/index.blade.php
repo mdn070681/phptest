@@ -19,8 +19,11 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700,900" rel="stylesheet">
 
     <!-- Styles -->
+
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 
 </head>
 <body>
@@ -55,10 +58,22 @@
                     <table class="table category-product">
                         <thead>
                         <tr>
-                            <th><a href="{{ route('indexSortByName') }}">Имя</a></th>
-                            <th><a href="{{ route('indexSortBySurname') }}">Фамилия</a></th>
-                            <th><a href="{{ route('indexSortByNumber') }}">Номер группы</a></th>
-                            <th><a href="{{ route('indexSortByScore') }}">Баллы</a></th>
+                            <th>Имя<a href="{{ route('indexSortByNameUp') }}"><span
+                                            class="glyphicon glyphicon-arrow-up"></span></a><a
+                                        href="{{ route('indexSortByNameDown') }}"><span
+                                            class="glyphicon glyphicon-arrow-down"></span></a></th>
+                            <th>Фамилия<a href="{{ route('indexSortBySurnameUp') }}"><span
+                                            class="glyphicon glyphicon-arrow-up"></span></a><a
+                                        href="{{ route('indexSortBySurnameDown') }}"><span
+                                            class="glyphicon glyphicon-arrow-down"></span></a></th>
+                            <th>Номер группы <a href="{{ route('indexSortByNumberUp') }}"><span
+                                            class="glyphicon glyphicon-arrow-up"></span></a><a
+                                        href="{{ route('indexSortByNumberDown') }}"><span
+                                            class="glyphicon glyphicon-arrow-down"></span></a></th>
+                            <th>Баллы <a href="{{ route('indexSortByScoreUp') }}"><span
+                                            class="glyphicon glyphicon-arrow-up"></span></a><a
+                                        href="{{ route('indexSortByScoreDown') }}"><span
+                                            class="glyphicon glyphicon-arrow-down"></span></a></th>
                         </tr>
                         </thead>
                         <tbody>

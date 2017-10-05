@@ -25,27 +25,51 @@ class IndexController extends Controller
         return view('index')->withData($data)->withTitle('phpTest | search');
     }
 
-    public function sortByName()
+    public function sortByNameUp()
     {
-        $data = Applicant::getApplicantsByName();
+        $data = Applicant::getApplicantsByNameUp();
         return view('index')->withData($data)->withTitle('phpTest | index');
     }
 
-    public function sortBySurname()
+    public function sortByNameDown()
     {
-        $data = Applicant::getApplicantsBySurname();
+        $data = Applicant::getApplicantsByNameDown();
         return view('index')->withData($data)->withTitle('phpTest | index');
     }
 
-    public function sortByNumber()
+    public function sortBySurnameUp()
     {
-        $data = Applicant::getApplicantsByNumber();
+        $data = Applicant::getApplicantsBySurnameUp();
         return view('index')->withData($data)->withTitle('phpTest | index');
     }
 
-    public function sortByScore()
+    public function sortBySurnameDown()
     {
-        $data = Applicant::getApplicantsByScore();
+        $data = Applicant::getApplicantsBySurnameDown();
+        return view('index')->withData($data)->withTitle('phpTest | index');
+    }
+
+    public function sortByNumberUp()
+    {
+        $data = Applicant::getApplicantsByNumberUp();
+        return view('index')->withData($data)->withTitle('phpTest | index');
+    }
+
+    public function sortByNumberDown()
+    {
+        $data = Applicant::getApplicantsByNumberDown();
+        return view('index')->withData($data)->withTitle('phpTest | index');
+    }
+
+    public function sortByScoreUp()
+    {
+        $data = Applicant::getApplicantsByScoreUp();
+        return view('index')->withData($data)->withTitle('phpTest | index');
+    }
+
+    public function sortByScoreDown()
+    {
+        $data = Applicant::getApplicantsByScoreDown();
         return view('index')->withData($data)->withTitle('phpTest | index');
     }
 }
