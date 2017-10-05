@@ -7,8 +7,6 @@ use App\Applicant;
 
 class SearchController extends Controller
 {
-    //
-
     public function search(Request $request)
     {
         $search = $request->search;

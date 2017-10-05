@@ -44,7 +44,8 @@
             <div class="container">
                 <form action="{{ route('search') }}" method="post" class="contact-form">
                     {{ csrf_field() }}
-                    <input type="text" name="search" value="{{ old('search') }}" required placeholder="Поиск" maxlength="100">
+                    <input type="text" name="search" value="{{ old('search') }}" required placeholder="Поиск"
+                           maxlength="100">
                     <input type="submit" value="Поиск">
                 </form>
             </div>

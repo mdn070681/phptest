@@ -7,8 +7,6 @@ use App\Applicant;
 
 class IndexController extends Controller
 {
-    //
-
     public function show()
     {
         if (view()->exists('index')) {
@@ -20,15 +18,11 @@ class IndexController extends Controller
 
     public function search(Request $request)
     {
-
         $search = $request->search;
         $search .= '%';
-
-
         $data = Applicant::where('status', 1)->where('name', $search)->paginate(2);
 
         return view('index')->withData($data)->withTitle('phpTest | search');
-
     }
 
     public function sortByName()
@@ -48,6 +42,7 @@ class IndexController extends Controller
         $data = Applicant::getApplicantsByNumber();
         return view('index')->withData($data)->withTitle('phpTest | index');
     }
+
     public function sortByScore()
     {
         $data = Applicant::getApplicantsByScore();
