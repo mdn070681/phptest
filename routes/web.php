@@ -13,6 +13,7 @@
 
 Route::get('/', 'IndexController@show')->name('index');
 Route::match(['get', 'post'], '/registration', 'RegistrationController@show')->name('registration');
+Route::match(['get', 'post'], '/formHandler', 'RegistrationController@formHandler')->name('formHandler');
 Route::post('search', 'SearchController@search')->name('search');
 Route::get('/sortByNameUp', 'IndexController@sortByNameUp')->name('indexSortByNameUp');
 Route::get('/sortByNameDown', 'IndexController@sortByNameDown')->name('indexSortByNameDown');

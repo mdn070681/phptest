@@ -19,7 +19,7 @@
                 @endif
             </div>
             <div class="container">
-                <form action="{{ route('registration') }}" method="post" class="contact-form">
+                <form action="{{ route('formHandler') }}" method="post" class="contact-form">
                     {{ csrf_field() }}
                     <h1>Регистрация</h1>
                     <input type="text" name="name" value="{{ old('name') }}"
