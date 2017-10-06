@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Applicant;
+use Illuminate\Cookie\CookieJar;
 use Illuminate\Support\Facades\Validator;
-
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Http\Response;
 
@@ -13,10 +14,15 @@ class RegistrationController extends Controller
 {
     public function show()
     {
-        return view('registration')->withTitle('phpTest | registration');
+        $email = Cookie::get('email');
+        $applicant = [];
+        if ($email) {
+            $applicant = Applicant::getApplicantFromEmail($email);
+        }
+        return view('registration')->withApplicant($applicant)->withTitle('phpTest | registration');
     }
 
-    public function formHandler(Request $request)
+    public function formHandler(CookieJar $cookieJar, Request $request)
     {
         if ($request->isMethod('post')) {
             $rules = [
@@ -30,15 +36,19 @@ class RegistrationController extends Controller
                 'local_or_foreigner' => 'required|max:10|alpha'
             ];
             $request->flash();
+
             $this->validate($request, $rules);
-            if ($request->has('name')) {
+
+            $oldApplicant = Applicant::oldApplicant($request);
+
+            if ($request->email == Cookie::get('email')) {
+                Applicant::updateApplicant($request);
+            } elseif($request->email !=  (isset($oldApplicant->email) ? $oldApplicant->email : null)) {
                 Applicant::addApplicant($request);
-                $request->flash();
-//                $cookie = cookie('email', $request->email, 5256000);
-                return redirect()->route('index');
+                $cookieJar->queue(cookie('email', $request->email, 5256000));
             }
+            return redirect()->route('index');
         }
         return view('registration')->withTitle('phpTest | registration');
     }
-
 }
