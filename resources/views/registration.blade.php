@@ -23,10 +23,10 @@
                     {{ csrf_field() }}
                     <h1>Регистрация</h1>
                     <input type="text" name="name" value="{{ $applicant->name or old('name') }}"
-                           placeholder="Имя" required maxlength="100">
+                           placeholder="Имя" required maxlength="100" pattern="[a-zA-ZА-Яа-я]+">
                     <input type="text" name="surname" value="{{ $applicant->surname or old('surname') }}"
                            placeholder="Фамилия"
-                           required maxlength="100">
+                           required maxlength="100" pattern="[a-zA-ZА-Яа-я]+">
                     Пол :&nbsp &nbsp
 
                     @if(isset($applicant->gender) ? $applicant->gender : old('gender') == 'male')
@@ -42,10 +42,10 @@
                     <input type="email" name="email" value="{{ $applicant->email or old('email') }}" required
                            placeholder="Email">
                     <input type="number" name="score_vno" value="{{ $applicant->score_vno or old('score_vno') }}"
-                           placeholder="Число баллов на ВНО " required min="100" max="200">
+                           placeholder="Число баллов на ВНО " required min="100" max="200" pattern="[0-9]+">
                     <input type="number" name="year" value="{{ $applicant->year or old('year') }}"
                            placeholder="Год рождения "
-                           min="1958" max="2017" required>
+                           min="1958" max="2017" required pattern="[0-9]+">
                     <select type="text" name="local_or_foreigner" required>
                         @if(isset($applicant->local_or_foreigner) ? $applicant->local_or_foreigner : old('local_or_foreigner') == 'foreigner' )
                             <option value="local">Местный</option>

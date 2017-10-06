@@ -43,7 +43,7 @@ class RegistrationController extends Controller
 
             if ($request->email == Cookie::get('email')) {
                 Applicant::updateApplicant($request);
-            } elseif($request->email !=  (isset($oldApplicant->email) ? $oldApplicant->email : null)) {
+            } elseif ($request->email != ($oldApplicant->email ?? 'no')) {
                 Applicant::addApplicant($request);
                 $cookieJar->queue(cookie('email', $request->email, 5256000));
             }
