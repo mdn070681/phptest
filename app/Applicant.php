@@ -57,64 +57,55 @@ class Applicant extends Model
         return 0;
     }
 
-    public
-    static function getApplicantsByNameUp()
+    public static function getApplicantsByNameUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('name')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsByNameDown()
+    public static function getApplicantsByNameDown()
     {
         $applicants = Applicant::where('status', 1)->orderBy('name', 'desc')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsBySurnameUp()
+    public static function getApplicantsBySurnameUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('surname')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsBySurnameDown()
+    public static function getApplicantsBySurnameDown()
     {
         $applicants = Applicant::where('status', 1)->orderBy('surname', 'desc')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsByNumberUp()
+    public static function getApplicantsByNumberUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('group_number')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsByNumberDown()
+    public static function getApplicantsByNumberDown()
     {
         $applicants = Applicant::where('status', 1)->orderBy('group_number', 'desc')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsByScoreUp()
+    public static function getApplicantsByScoreUp()
     {
         $applicants = Applicant::where('status', 1)->orderBy('score_vno')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantsByScoreDown()
+    public static function getApplicantsByScoreDown()
     {
         $applicants = Applicant::where('status', 1)->orderBy('score_vno', 'desc')->paginate(5);
         return $applicants;
     }
 
-    public
-    static function getApplicantFromEmail($email)
+    public static function getApplicantFromEmail($email)
     {
         $applicant = Applicant::where('email', $email)->first();
         return $applicant;
